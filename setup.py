@@ -1,6 +1,6 @@
 import setuptools
 
-with open("README", "r", encoding="utf-8") as stream:
+with open("README.md", "r", encoding="utf-8") as stream:
     long_description = stream.read()
 
 setuptools.setup(
@@ -8,7 +8,7 @@ setuptools.setup(
     version="1.0",
     author="Anthony Lew",
     author_email="anthony@v01dbreaker.com",
-    description="Used to modify generated URDFs and recalculate inertias. ",
+    description="A Python script used to modify generated URDFs and recalculate inertias. ",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/V01DBREAKER/urdf-modifier",
