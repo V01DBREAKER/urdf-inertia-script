@@ -15,7 +15,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
-            "urdf-modifier=urdf-modifier:script.main",
+            "urdf-modifier=src:script.main",
         ]
     },
     classifiers=[
