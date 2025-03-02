@@ -1,9 +1,7 @@
 # urdf-modifier
 A python script used to modify generated URDFs from onshape-to-robot. Also can recalculate inertias using MeshLab.
 
-Inertias from onshape-to-robot weren't behaving correctly in Gazebo Sim when using the DetachableJoint plugin to close kinematic loops.
-https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1DetachableJoint.html
-https://github.com/rhoban/onshape-to-robot/
+Inertias from [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/) weren't behaving correctly in Gazebo Sim when using the [DetachableJoint plugin](https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1DetachableJoint.html) to close kinematic loops.
 
 Modify for yourself before using!
 
