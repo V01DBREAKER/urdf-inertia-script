@@ -1,5 +1,5 @@
 import sys
-import script
+from .script import calcInertia
 
 def main():
     if len(sys.argv) > 1:
@@ -7,7 +7,7 @@ def main():
         mass = float(sys.argv[2])
         format_type = sys.argv[3] if len(sys.argv) > 3 else "urdf"
 
-        vals = script.calcInertia(stl_path, mass)
+        vals = calcInertia(stl_path, mass)
 
         header = f"Using {stl_path} of {mass} kg with {format_type} format:\n"
         o = [header] if format_type == "sdf" else [header, "<inertia "]
