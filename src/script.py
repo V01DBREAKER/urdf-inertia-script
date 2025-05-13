@@ -140,6 +140,38 @@ def overrideInertias(tree: etree.ElementTree, mesh_dir: str) -> None:
         inertia_element.set("izz", f"{output['izz']:.10e}")
 
 
+
+def main():
+    if len(sys.argv) > 1:
+        xml_filename = sys.argv[1]
+
+        mesh_dir = ""
+        if len(sys.argv) > 2:
+            mesh_dir = sys.argv[2]
+
+        tree = etree.parse(xml_filename)
+
+        # functions here to modify xml tree
+        overrideInertias(tree, mesh_dir)
+        #meshRelink(tree)
+        #removeContinuous(tree)
+
+        # write tree to file
+        tree.write(f"{xml_filename}+out.urdf")
+
+    else:
+        print(f"Usage: {os.path.basename(__file__)} <urdf_file_path>")
+
+
+if __name__ == "__main__":
+    # manual debugging
+    # print(calcInertia("/home/nova/urdf/ee.stl",0.768))
+    main()
+
+
+"""
+Other useful functions you may want to use...
+"""
 def autoInertia(tree: etree.ElementTree) -> None:
     """ Adds auto inertial tags to urdf 
         Could be useful for AUTO calculating inertias if we update to gazebo 9.1
@@ -178,32 +210,5 @@ def removeContinuous(tree: etree.ElementTree) -> None:
         if joint_name.endswith("_continuous"):
             joint.set("name", joint_name[:-11])
 
-def main():
-    if len(sys.argv) > 1:
-        xml_filename = sys.argv[1]
-
-        mesh_dir = ""
-        if len(sys.argv) > 2:
-            mesh_dir = sys.argv[2]
-
-        tree = etree.parse(xml_filename)
-
-        # functions here to modify xml tree
-        overrideInertias(tree, mesh_dir)
-        meshRelink(tree)
-        removeContinuous(tree)
-
-        # write tree to file
-        tree.write(f"{xml_filename}+out.urdf")
-
-    else:
-        print(f"Usage: {os.path.basename(__file__)} <urdf_file_path> [stl_folder_path]")
-
-
-if __name__ == "__main__":
-    # manual debugging
-    # print(calcInertia("/home/nova/urdf/ee.stl",0.768))
-    main()
-    
 
     

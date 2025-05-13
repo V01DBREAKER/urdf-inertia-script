@@ -4,18 +4,19 @@ with open("README.md", "r", encoding="utf-8") as stream:
     long_description = stream.read()
 
 setuptools.setup(
-    name="urdf-modifier",
-    version="1.0",
+    name="urdf-inertia-script",
+    version="1.1",
     author="Anthony Lew",
     author_email="anthony@v01dbreaker.com",
     description="A Python script used to modify generated URDFs and recalculate inertias. ",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/V01DBREAKER/urdf-modifier",
+    url="https://github.com/V01DBREAKER/urdf-inertia-script",
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
             "urdf-modifier=src:script.main",
+            "inertia-calc=src:manual.main",
         ]
     },
     classifiers=[
